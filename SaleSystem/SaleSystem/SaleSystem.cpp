@@ -7,7 +7,7 @@
 #include "afxdialogex.h"
 #include "SaleSystem.h"
 #include "MainFrm.h"
-
+#include "LoginDlg.h"
 #include "SaleSystemDoc.h"
 #include "SaleSystemView.h"
 
@@ -68,6 +68,10 @@ BOOL CSaleSystemApp::InitInstance()
 	InitCtrls.dwICC = ICC_WIN95_CLASSES;
 	InitCommonControlsEx(&InitCtrls);
 
+	CLoginDlg dlg;   // 创建登录对话框，需要其头文件
+	dlg.DoModal();	 // 模态方式运行
+
+	// 前面创建 LOGIN 对话框
 	CWinApp::InitInstance();
 
 
