@@ -124,6 +124,7 @@
     <None Include="res\SaleSystem.rc2" />
   </ItemGroup>
   <ItemGroup>
+    <Image Include="..\..\res\image\user.ico" />
     <Image Include="res\SaleSystem.ico" />
     <Image Include="res\SaleSystemDoc.ico" />
   </ItemGroup>

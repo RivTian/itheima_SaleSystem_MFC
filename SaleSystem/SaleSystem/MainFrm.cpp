@@ -50,6 +50,17 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	}
 	m_wndStatusBar.SetIndicators(indicators, sizeof(indicators)/sizeof(UINT));
 
+	//设置图标，IDI_ICON_WIN为图标资源ID，此为WINAPI函数
+	SetClassLong(m_hWnd, GCL_HICON, (LONG)AfxGetApp()->LoadIconW(IDI_ICON_WIN));
+
+	//设置窗口的位置和大小：CWnd::MoveWindow
+	//0, 0, 起点坐标x和y
+	//800, 500, 窗口宽度和高度
+	MoveWindow(0, 0, 800, 500);
+
+	//将窗口移动到屏幕中央，CWnd::CenterWindow
+	CenterWindow();
+
 	return 0;
 }
 

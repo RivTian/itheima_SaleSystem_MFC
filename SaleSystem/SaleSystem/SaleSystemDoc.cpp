@@ -45,6 +45,9 @@ BOOL CSaleSystemDoc::OnNewDocument()
 	// TODO:  在此添加重新初始化代码
 	// (SDI 文档将重用该文档)
 
+	//设置窗口标题，CDocument::SetTitle
+	SetTitle(TEXT("销售管理系统"));
+
 	return TRUE;
 }
 
