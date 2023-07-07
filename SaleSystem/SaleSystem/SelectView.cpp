@@ -5,6 +5,7 @@
 #include "SaleSystem.h"
 #include "SelectView.h"
 #include "resource.h"
+#include "MainFrm.h"
 
 // CSelectView
 
@@ -94,22 +95,29 @@ void CSelectView::OnTvnSelchanged(NMHDR *pNMHDR, LRESULT *pResult)
 
 	if (str == _T("个人信息"))
 	{
-
+		//需要包含框架类头文件#include "MainFrm.h" 
+		//CWnd::PostMessage 将一个消息放入窗口的消息队列
+		//AfxGetMainWnd()：框架窗口对象的指针
+		//AfxGetMainWnd()->GetSafeHwnd()：获取返回窗口的句柄，CWnd::GetSafeHwnd
+		//NM_A：发送自定义消息
+		//(WPARAM)NM_A：指定了附加的消息信息
+		//(LPARAM)0：指定了附加的消息信息，此参数这里没有意义
+		::PostMessage(AfxGetMainWnd()->GetSafeHwnd(), NM_A, (WPARAM)NM_A, (LPARAM)0);
 	} 
 	else if (str == _T("销售管理"))
 	{
-
+		::PostMessage(AfxGetMainWnd()->GetSafeHwnd(), NM_B, (WPARAM)NM_B, (LPARAM)0);
 	}
 	else if (str == _T("库存管理"))
 	{
-
+		::PostMessage(AfxGetMainWnd()->GetSafeHwnd(), NM_C, (WPARAM)NM_C, (LPARAM)0);
 	}
 	else if (str == _T("库存增加"))
 	{
-
+		::PostMessage(AfxGetMainWnd()->GetSafeHwnd(), NM_D, (WPARAM)NM_D, (LPARAM)0);
 	}
 	else if (str == _T("库存删除"))
 	{
-
+		::PostMessage(AfxGetMainWnd()->GetSafeHwnd(), NM_E, (WPARAM)NM_E, (LPARAM)0);
 	}
 }

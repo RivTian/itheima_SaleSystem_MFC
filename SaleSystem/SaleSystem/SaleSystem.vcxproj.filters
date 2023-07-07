@@ -51,6 +51,9 @@
     <ClInclude Include="DisplayView.h">
       <Filter>头文件</Filter>
     </ClInclude>
+    <ClInclude Include="UserDlg.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="SaleSystem.cpp">
@@ -78,6 +81,9 @@
       <Filter>源文件</Filter>
     </ClCompile>
     <ClCompile Include="DisplayView.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
+    <ClCompile Include="UserDlg.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
   </ItemGroup>
