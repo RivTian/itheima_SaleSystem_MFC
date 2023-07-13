@@ -8,6 +8,8 @@
 #include "MainFrm.h"
 #include "DisplayView.h"
 #include "UserDlg.h"
+#include "SellDlg.h"
+#include "InfoDlg.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -139,6 +141,31 @@ LRESULT CMainFrame::OnMyChange(WPARAM wParam, LPARAM lParam)
 		m_spliter.DeleteView(0, 1);
 		m_spliter.CreateView(0, 1, RUNTIME_CLASS(CUserDlg), CSize(600, 500), &Context);
 		CUserDlg *pNewView = (CUserDlg *)m_spliter.GetPane(0, 1);
+		m_spliter.RecalcLayout();
+		pNewView->OnInitialUpdate();
+		m_spliter.SetActivePane(0, 1);
+	}
+	if (wParam == NM_B)
+	{
+		Context.m_pNewViewClass = RUNTIME_CLASS(CSellDlg);
+		Context.m_pCurrentFrame = this;
+		Context.m_pLastView = (CFormView *)m_spliter.GetPane(0, 1);
+		m_spliter.DeleteView(0, 1);
+		m_spliter.CreateView(0, 1, RUNTIME_CLASS(CSellDlg), CSize(600, 500), &Context);
+		CSellDlg *pNewView = (CSellDlg *)m_spliter.GetPane(0, 1);
+		m_spliter.RecalcLayout();
+		pNewView->OnInitialUpdate();
+		m_spliter.SetActivePane(0, 1);
+	}
+	if (wParam == NM_C)
+	{
+		//CInfoDlg类需要包含头文件#include "InfoDlg.h"
+		Context.m_pNewViewClass = RUNTIME_CLASS(CInfoDlg);
+		Context.m_pCurrentFrame = this;
+		Context.m_pLastView = (CFormView *)m_spliter.GetPane(0, 1);
+		m_spliter.DeleteView(0, 1);
+		m_spliter.CreateView(0, 1, RUNTIME_CLASS(CInfoDlg), CSize(600, 0), &Context);
+		CInfoDlg *pNewView = (CInfoDlg *)m_spliter.GetPane(0, 1);
 		m_spliter.RecalcLayout();
 		pNewView->OnInitialUpdate();
 		m_spliter.SetActivePane(0, 1);
